@@ -80,7 +80,7 @@ else:
     ret, img = camera.read()
 
     with open('calibration.yaml') as f:
-        loadeddict = yaml.load(f)
+        loadeddict = yaml.load(f, Loader=yaml.SafeLoader)
     mtx = loadeddict.get('camera_matrix')
     dist = loadeddict.get('dist_coeff')
     mtx = np.array(mtx)
